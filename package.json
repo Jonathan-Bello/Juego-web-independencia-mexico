@@ -1,0 +1,15 @@
+{
+  "name": "juego-web-independencia-mexico",
+  "version": "0.1.0",
+  "description": "Quiz web en tiempo real sobre la Independencia de México. Proyecto de clase con agentes de IA.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "start": "python3 -m http.server 8080",
+    "setup-github": "node scripts/setup-github.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "version": "0.1",
+  "escenas": [
+    {
+      "id": "conspiracion",
+      "titulo": "La conspiración descubierta",
+      "fecha": "1810-09",
+      "lugar": "Querétaro",
+      "tiempos": [
+        { "narracion": "En Querétaro, un grupo se reúne fingiendo tertulias literarias.", "imagen": "assets/img/conspiracion-1.webp" },
+        { "narracion": "La conspiración es descubierta y la corregidora queda encerrada en su casa.", "imagen": "assets/img/conspiracion-2.webp" },
+        { "narracion": "Aun encerrada, logra enviar el aviso que llega a Dolores.", "imagen": "assets/img/conspiracion-3.webp" }
+      ],
+      "pregunta": "¿Quiénes formaban parte de la conspiración de Querétaro?",
+      "opciones": [
+        { "texto": "Josefa Ortiz de Domínguez", "correcta": true },
+        { "texto": "Ignacio Allende", "correcta": true },
+        { "texto": "Agustín de Iturbide", "correcta": false, "porque": "En 1810 combatía del lado realista." },
+        { "texto": "Benito Juárez", "correcta": false, "porque": "En 1810 era un niño de 4 años." }
+      ],
+      "dato": "El aviso de la corregidora obligó a adelantar el levantamiento planeado.",
+      "fuente": "Pendiente"
+    },
+    {
+      "id": "grito",
+      "titulo": "El Grito de Dolores",
+      "fecha": "1810-09-16",
+      "lugar": "Dolores, Guanajuato",
+      "tiempos": [
+        { "narracion": "Madrugada del 16 de septiembre de 1810; el pueblo de Dolores duerme.", "imagen": "assets/img/grito-1.webp" },
+        { "narracion": "Suenan las campanas de la parroquia.", "imagen": "assets/img/grito-2.webp" },
+        { "narracion": "El cura habla a la multitud reunida en el atrio.", "imagen": "assets/img/grito-3.webp" }
+      ],
+      "pregunta": "¿Qué ocurrió esa madrugada en Dolores?",
+      "opciones": [
+        { "texto": "Miguel Hidalgo hizo sonar la campana para reunir al pueblo", "correcta": true },
+        { "texto": "Hidalgo llamó a levantarse contra el mal gobierno", "correcta": true },
+        { "texto": "Se leyó el Acta de Independencia del Imperio Mexicano", "correcta": false, "porque": "El Acta es de 1821." },
+        { "texto": "José María Morelos encabezó el llamado", "correcta": false, "porque": "Morelos se unió al movimiento semanas después." }
+      ],
+      "dato": "Hidalgo tomó como estandarte una imagen de la Virgen de Guadalupe en Atotonilco.",
+      "fuente": "Pendiente"
+    },
+    {
+      "id": "alhondiga",
+      "titulo": "La toma de la Alhóndiga de Granaditas",
+      "fecha": "1810-09-28",
+      "lugar": "Guanajuato",
+      "tiempos": [
+        { "narracion": "El ejército insurgente llega a Guanajuato.", "imagen": "assets/img/alhondiga-1.webp" },
+        { "narracion": "Los españoles se atrincheran en el granero de la ciudad con el intendente Riaño.", "imagen": "assets/img/alhondiga-2.webp" },
+        { "narracion": "Un minero con una losa en la espalda avanza hacia la puerta con una antorcha.", "imagen": "assets/img/alhondiga-3.webp" }
+      ],
+      "pregunta": "¿Qué sucedió en la Alhóndiga de Granaditas?",
+      "opciones": [
+        { "texto": "Los realistas y españoles se refugiaron dentro con el intendente Riaño", "correcta": true },
+        { "texto": "Según la tradición, El Pípila incendió la puerta", "correcta": true },
+        { "texto": "Ocurrió en el puerto de Veracruz", "correcta": false, "porque": "Fue en la ciudad de Guanajuato." },
+        { "texto": "Fue la batalla que puso fin a la guerra", "correcta": false, "porque": "La guerra siguió hasta 1821." }
+      ],
+      "dato": "Los historiadores discuten si El Pípila existió tal como lo cuenta la tradición; el juego lo presenta como tradición.",
+      "fuente": "Pendiente"
+    },
+    {
+      "id": "chilpancingo",
+      "titulo": "El Congreso de Chilpancingo",
+      "fecha": "1813-09",
+      "lugar": "Chilpancingo",
+      "tiempos": [
+        { "narracion": "1813; Hidalgo ya fue fusilado y Morelos dirige la insurgencia.", "imagen": "assets/img/chilpancingo-1.webp" },
+        { "narracion": "Se reúnen diputados de varias provincias en el primer congreso insurgente.", "imagen": "assets/img/chilpancingo-2.webp" },
+        { "narracion": "Se lee un documento con los principios de la nueva nación.", "imagen": "assets/img/chilpancingo-3.webp" }
+      ],
+      "pregunta": "¿Qué pasó en el Congreso de Chilpancingo?",
+      "opciones": [
+        { "texto": "Morelos presentó los Sentimientos de la Nación", "correcta": true },
+        { "texto": "Se declaró la independencia de la América Septentrional", "correcta": true },
+        { "texto": "Miguel Hidalgo presidió el congreso", "correcta": false, "porque": "Hidalgo murió en 1811." },
+        { "texto": "Se proclamó emperador a Iturbide", "correcta": false, "porque": "Eso ocurrió en 1822." }
+      ],
+      "dato": "El Acta Solemne de la Declaración de Independencia se firmó el 6 de noviembre de 1813.",
+      "fuente": "Pendiente"
+    },
+    {
+      "id": "trigarante",
+      "titulo": "La entrada del Ejército Trigarante",
+      "fecha": "1821-09-27",
+      "lugar": "Ciudad de México",
+      "tiempos": [
+        { "narracion": "27 de septiembre de 1821; un ejército con bandera de tres colores llega a la capital.", "imagen": "assets/img/trigarante-1.webp" },
+        { "narracion": "Recuerdo: en febrero se firmó el Plan de Iguala con tres garantías.", "imagen": "assets/img/trigarante-2.webp" },
+        { "narracion": "Un antiguo jefe realista y un jefe insurgente del sur encabezan la alianza.", "imagen": "assets/img/trigarante-3.webp" }
+      ],
+      "pregunta": "¿Qué líderes unieron fuerzas para formar el Ejército Trigarante?",
+      "opciones": [
+        { "texto": "Agustín de Iturbide", "correcta": true },
+        { "texto": "Vicente Guerrero", "correcta": true },
+        { "texto": "Miguel Hidalgo", "correcta": false, "porque": "Hidalgo murió en 1811." },
+        { "texto": "José María Morelos", "correcta": false, "porque": "Morelos murió en 1815." }
+      ],
+      "dato": "Al día siguiente, el 28 de septiembre de 1821, se firmó el Acta de Independencia del Imperio Mexicano.",
+      "fuente": "Pendiente"
+    }
+  ]
+}

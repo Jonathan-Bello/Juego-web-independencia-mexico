@@ -1,0 +1,41 @@
+name: Tarea
+description: Una tarea del GDD para una persona o un agente de IA
+title: "[Tarea] "
+body:
+  - type: textarea
+    id: tarea
+    attributes:
+      label: Tarea
+      description: Qué hay que hacer, en una o dos frases.
+    validations:
+      required: true
+  - type: input
+    id: seccion
+    attributes:
+      label: Sección del GDD
+      placeholder: "docs/GDD.md §2.2"
+    validations:
+      required: true
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      value: |
+        - [ ]
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: archivos
+    attributes:
+      label: Archivos que se pueden tocar
+      placeholder: "src/game/timer.js, tests/timer.test.js"
+  - type: dropdown
+    id: asignado
+    attributes:
+      label: ¿Quién la hace?
+      options:
+        - Agente de IA (con revisión humana)
+        - Persona
+    validations:
+      required: true

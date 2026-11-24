@@ -1,0 +1,1 @@
+Sigue las reglas de `AGENTS.md` en la raíz del repositorio y el diseño de `docs/GDD.md`. Responde y comenta en español. Sin dependencias ni build: JavaScript con módulos ES. Nunca hagas push a `main`.

@@ -1,0 +1,27 @@
+/* Paleta provisional — GDD sección 4.2: sepia con acentos verde, blanco y rojo. */
+:root {
+  --papel: #f3e9d2;
+  --tinta: #2b2118;
+  --sepia: #8a6a45;
+  --verde: #1f6b3a;
+  --rojo: #a3262a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+#juego {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+h1 { font-family: Georgia, serif; color: var(--sepia); }

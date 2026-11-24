@@ -1,0 +1,125 @@
+{
+  "labels": [
+    { "name": "gameplay", "color": "1f6b3a", "description": "Lógica del juego (src/game)" },
+    { "name": "ui", "color": "0e8a96", "description": "Pantallas, controles y estilos" },
+    { "name": "content", "color": "8a6a45", "description": "Textos y datos históricos" },
+    { "name": "art", "color": "c5a46d", "description": "Ilustraciones" },
+    { "name": "audio", "color": "b07cc6", "description": "Música y efectos" },
+    { "name": "docs", "color": "0075ca", "description": "Documentación y GDD" },
+    { "name": "qa", "color": "fbca04", "description": "Pruebas y revisión" },
+    { "name": "bug", "color": "a3262a", "description": "Algo no funciona" },
+    { "name": "agente", "color": "5319e7", "description": "La hace un agente de IA con revisión humana" },
+    { "name": "humano", "color": "ededed", "description": "La hace una persona" }
+  ],
+  "milestones": [
+    { "title": "Sesión 1 — Preparación", "description": "Repo, GDD, reglas y protección de main" },
+    { "title": "Sesión 2 — Núcleo", "description": "Estado, reloj y puntuación con pruebas" },
+    { "title": "Sesión 3 — Contenido e interfaz", "description": "Escenas verificadas y pantallas" },
+    { "title": "Sesión 4 — Arte, audio y pulido", "description": "Recursos, Modo calma y móvil" },
+    { "title": "Sesión 5 — Playtest y entrega", "description": "Pruebas con jugadores y publicación" }
+  ],
+  "issues": [
+    {
+      "title": "Revisar y aprobar el GDD v0.1",
+      "milestone": "Sesión 1 — Preparación",
+      "labels": ["docs", "humano"],
+      "body": "## Tarea\nLeer `docs/GDD.md` en equipo y abrir un PR con las correcciones acordadas.\n\n## Sección del GDD\nTodo el documento\n\n## Criterios de aceptación\n- [ ] Cada integrante leyó el GDD y dejó al menos un comentario o pregunta\n- [ ] Se resolvieron las preguntas abiertas de la sección 7.3 o se anotó la decisión\n- [ ] El docente aprobó el PR"
+    },
+    {
+      "title": "Invitar al equipo y que cada quien configure su agente",
+      "milestone": "Sesión 1 — Preparación",
+      "labels": ["docs", "humano"],
+      "body": "## Tarea\nCada integrante acepta la invitación al repo, lo clona y comprueba que su herramienta de IA lee `AGENTS.md`.\n\n## Sección del GDD\n§6\n\n## Criterios de aceptación\n- [ ] Todos aparecen como colaboradores\n- [ ] Cada quien corrió `node --test` en su computadora\n- [ ] Cada quien comentó aquí qué herramienta de IA usará (Claude Code, Copilot, Cursor, otra)"
+    },
+    {
+      "title": "Implementar scoring.js",
+      "milestone": "Sesión 2 — Núcleo",
+      "labels": ["gameplay", "agente"],
+      "body": "## Tarea\nImplementar `puntosBase`, `puntosEscena` y `rango` en `src/game/scoring.js`.\n\n## Sección del GDD\n§2.3\n\n## Archivos\n`src/game/scoring.js`, `tests/scoring.test.js`\n\n## Criterios de aceptación\n- [ ] Se quitó el `todo` de todas las pruebas de `tests/scoring.test.js`\n- [ ] `node --test` pasa\n- [ ] Las funciones no tocan el DOM ni tienen estado global"
+    },
+    {
+      "title": "Implementar timer.js",
+      "milestone": "Sesión 2 — Núcleo",
+      "labels": ["gameplay", "agente"],
+      "body": "## Tarea\nImplementar `crearReloj` en `src/game/timer.js` con la firma documentada.\n\n## Sección del GDD\n§2.2 y §5.2\n\n## Archivos\n`src/game/timer.js`, `tests/timer.test.js` (nuevo)\n\n## Criterios de aceptación\n- [ ] Usa `performance.now()` y `requestAnimationFrame`, no `setInterval`\n- [ ] Llama `alCambiarTiempo` al iniciar los tiempos 1, 2 y 3 y `alTerminar` una sola vez\n- [ ] `msPorTiempo` permite 10000 (normal) y 15000 (Modo calma)\n- [ ] Pausar y reanudar conserva el tiempo restante\n- [ ] Pruebas con un reloj falso inyectado en `ahora`"
+    },
+    {
+      "title": "Implementar state.js (máquina de estados)",
+      "milestone": "Sesión 2 — Núcleo",
+      "labels": ["gameplay", "agente"],
+      "body": "## Tarea\nImplementar `crearPartida` en `src/game/state.js` usando `scoring.js`.\n\n## Sección del GDD\n§2.1 y §5.2\n\n## Archivos\n`src/game/state.js`, `tests/state.test.js` (nuevo)\n\n## Criterios de aceptación\n- [ ] Recorre TITULO → ESCENA → RESOLUCION → … → RESULTADOS → TITULO\n- [ ] Al elegir la segunda opción se confirma la respuesta; la primera se puede desmarcar\n- [ ] `terminarTiempo()` sin respuesta da 0 puntos\n- [ ] Las opciones se barajan con la función `barajar` inyectable\n- [ ] `resumen()` da total y rango correctos\n- [ ] Pruebas que juegan una partida completa sin DOM"
+    },
+    {
+      "title": "Verificar fuentes de las escenas 1 y 2",
+      "milestone": "Sesión 3 — Contenido e interfaz",
+      "labels": ["content", "humano"],
+      "body": "## Tarea\nComprobar cada dato de las escenas `conspiracion` y `grito` contra una fuente confiable y anotarla en `fuente`.\n\n## Sección del GDD\n§3\n\n## Archivos\n`data/questions.json`\n\n## Criterios de aceptación\n- [ ] Cada narración, opción y dato fue verificado\n- [ ] `fuente` tiene autor/institución, título y página o URL\n- [ ] Se corrigió cualquier dato incorrecto y se explicó en el PR\n- [ ] Se quitó el `todo` de la prueba de fuente de esas escenas (o se dejó hasta tener las 5)"
+    },
+    {
+      "title": "Verificar fuentes de las escenas 3, 4 y 5",
+      "milestone": "Sesión 3 — Contenido e interfaz",
+      "labels": ["content", "humano"],
+      "body": "## Tarea\nComprobar cada dato de las escenas `alhondiga`, `chilpancingo` y `trigarante` y anotar la fuente.\n\n## Sección del GDD\n§3\n\n## Archivos\n`data/questions.json`\n\n## Criterios de aceptación\n- [ ] Cada narración, opción y dato fue verificado\n- [ ] `fuente` tiene autor/institución, título y página o URL\n- [ ] La escena de la Alhóndiga presenta a El Pípila como tradición\n- [ ] Se quitó el `todo` de la prueba de fuentes cuando las 5 escenas están verificadas"
+    },
+    {
+      "title": "Pantallas de título y escena",
+      "milestone": "Sesión 3 — Contenido e interfaz",
+      "labels": ["ui", "agente"],
+      "body": "## Tarea\nImplementar `pantallaTitulo` y `pantallaEscena` en `src/ui/render.js`.\n\n## Sección del GDD\n§4.1 (pantallas 1 y 2)\n\n## Archivos\n`src/ui/render.js`, `css/styles.css`\n\n## Criterios de aceptación\n- [ ] Título con botón Jugar e interruptores de Modo calma y audio\n- [ ] Escena con ilustración de fondo, barra de 3 segmentos con multiplicador, narración, pregunta y 4 opciones\n- [ ] 2 × 2 en escritorio, 1 columna en móvil\n- [ ] Si falta una imagen, se ve un fondo de color y el juego sigue"
+    },
+    {
+      "title": "Pantallas de resolución y resultados",
+      "milestone": "Sesión 3 — Contenido e interfaz",
+      "labels": ["ui", "agente"],
+      "body": "## Tarea\nImplementar `pantallaResolucion` y `pantallaResultados` en `src/ui/render.js`.\n\n## Sección del GDD\n§2.4 y §4.1 (pantallas 3 y 4)\n\n## Criterios de aceptación\n- [ ] Correctas en verde con ✓ y distractores elegidos en rojo con ✗\n- [ ] Se muestran los puntos de la escena, el dato histórico y el `porque` de los distractores elegidos\n- [ ] Resultados con total, rango, resumen de las 5 escenas y botón Jugar de nuevo"
+    },
+    {
+      "title": "Controles: clic, toque y teclas 1–4",
+      "milestone": "Sesión 3 — Contenido e interfaz",
+      "labels": ["ui", "agente"],
+      "body": "## Tarea\nImplementar `escucharOpciones` en `src/ui/input.js`.\n\n## Sección del GDD\n§2.5\n\n## Criterios de aceptación\n- [ ] Las teclas 1–4 eligen la opción en pantalla\n- [ ] Funciona con ratón y pantalla táctil\n- [ ] La función devuelta deja de escuchar (sin eventos duplicados entre escenas)"
+    },
+    {
+      "title": "Conectar estado, reloj e interfaz en main.js",
+      "milestone": "Sesión 3 — Contenido e interfaz",
+      "labels": ["gameplay", "ui", "agente"],
+      "body": "## Tarea\nArmar el bucle completo del juego en `src/main.js` usando `state.js`, `timer.js`, `render.js` e `input.js`.\n\n## Sección del GDD\n§5.2\n\n## Criterios de aceptación\n- [ ] Se juega una ronda completa de 5 escenas sin errores en consola\n- [ ] La escena se pausa al ocultar la pestaña\n- [ ] Modo calma cambia las escenas a 45 s"
+    },
+    {
+      "title": "Ilustraciones provisionales (15)",
+      "milestone": "Sesión 4 — Arte, audio y pulido",
+      "labels": ["art", "humano"],
+      "body": "## Tarea\nCrear 3 ilustraciones por escena con los nombres de `data/questions.json`.\n\n## Sección del GDD\n§4.2\n\n## Archivos\n`assets/img/`, `assets/CREDITS.md`\n\n## Criterios de aceptación\n- [ ] 15 imágenes `.webp`, 1280 × 720, menos de 200 KB cada una\n- [ ] Estilo grabado/litografía sepia\n- [ ] Cada imagen registrada en `assets/CREDITS.md`\n- [ ] Si se usó IA generativa, se indica la herramienta en los créditos"
+    },
+    {
+      "title": "Audio ambiente y efectos",
+      "milestone": "Sesión 4 — Arte, audio y pulido",
+      "labels": ["audio", "humano"],
+      "body": "## Tarea\nConseguir o crear 5 pistas de ambiente y 5 efectos.\n\n## Sección del GDD\n§4.3\n\n## Archivos\n`assets/audio/`, `assets/CREDITS.md`\n\n## Criterios de aceptación\n- [ ] Solo audio propio o CC0/CC BY\n- [ ] Cada archivo registrado en `assets/CREDITS.md`\n- [ ] Archivos `.ogg` o `.mp3` de menos de 500 KB"
+    },
+    {
+      "title": "Integrar audio con interruptor",
+      "milestone": "Sesión 4 — Arte, audio y pulido",
+      "labels": ["ui", "agente"],
+      "body": "## Tarea\nReproducir el ambiente de cada escena y los efectos, respetando el interruptor de audio.\n\n## Sección del GDD\n§4.3\n\n## Criterios de aceptación\n- [ ] El audio empieza solo después de la primera interacción (regla de los navegadores)\n- [ ] Con el audio apagado no suena nada\n- [ ] El juego funciona igual si falta un archivo de audio"
+    },
+    {
+      "title": "Revisión de QA y prueba en móvil",
+      "milestone": "Sesión 4 — Arte, audio y pulido",
+      "labels": ["qa", "agente"],
+      "body": "## Tarea\nRevisar el juego completo contra los criterios de la sección 7.1 y probarlo en al menos un teléfono.\n\n## Sección del GDD\n§7.1\n\n## Criterios de aceptación\n- [ ] Cada criterio de 7.1 marcado como cumple / no cumple en un comentario\n- [ ] Un issue `bug` por cada problema encontrado"
+    },
+    {
+      "title": "Playtest con 3 personas ajenas al equipo",
+      "milestone": "Sesión 5 — Playtest y entrega",
+      "labels": ["qa", "humano"],
+      "body": "## Tarea\nObservar a 3 personas jugar sin ayuda y registrar lo que pasa.\n\n## Sección del GDD\n§7 (sesión 5)\n\n## Criterios de aceptación\n- [ ] Notas de cada sesión en un comentario: puntuación, dudas, momentos de confusión\n- [ ] Una decisión sobre la pregunta abierta \"2 de 4\" con base en lo observado\n- [ ] Issues creados para los hallazgos importantes"
+    },
+    {
+      "title": "Publicación final y README",
+      "milestone": "Sesión 5 — Playtest y entrega",
+      "labels": ["docs", "humano"],
+      "body": "## Tarea\nComprobar que el juego está publicado en GitHub Pages y actualizar README y GDD con el estado final.\n\n## Sección del GDD\n§7.1\n\n## Criterios de aceptación\n- [ ] El enlace de GitHub Pages funciona y está en el README\n- [ ] El GDD refleja lo que realmente se construyó\n- [ ] Todos los criterios de 7.1 están cumplidos o tienen un issue abierto que lo explica"
+    }
+  ]
+}
