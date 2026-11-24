@@ -7,6 +7,13 @@ export const MULTIPLICADORES = [3, 2, 1];
 /** Puntaje máximo de una partida de 5 escenas. */
 export const PUNTAJE_MAXIMO = 1500;
 
+const RANGOS = [
+  { minimo: 1200, nombre: 'Insurgente de honor' },
+  { minimo: 700, nombre: 'Capitán trigarante' },
+  { minimo: 300, nombre: 'Recluta de Dolores' },
+  { minimo: 0, nombre: 'Cronista despistado' },
+];
+
 /**
  * Puntos base según cuántas opciones correctas eligió el jugador.
  * @param {number[]} elegidas  Índices de las opciones elegidas (0 a 2 elementos).
@@ -14,7 +21,11 @@ export const PUNTAJE_MAXIMO = 1500;
  * @returns {number} 100 si eligió las 2 correctas, 25 si eligió 1 correcta, 0 en otro caso.
  */
 export function puntosBase(elegidas, opciones) {
-  throw new Error('No implementado: ver el issue "Implementar scoring.js"');
+  const unicas = [...new Set(elegidas)];
+  const aciertos = unicas.filter((i) => opciones[i]?.correcta === true).length;
+  if (aciertos === 2 && unicas.length === 2) return 100;
+  if (aciertos === 1) return 25;
+  return 0;
 }
 
 /**
@@ -25,7 +36,12 @@ export function puntosBase(elegidas, opciones) {
  * @returns {number} puntosBase × multiplicador del tiempo, o 0 si tiempo es null.
  */
 export function puntosEscena(elegidas, opciones, tiempo) {
-  throw new Error('No implementado: ver el issue "Implementar scoring.js"');
+  if (tiempo == null) return 0;
+  const multiplicador = MULTIPLICADORES.at(tiempo - 1);
+  if (multiplicador === undefined || tiempo < 1) {
+    throw new RangeError(`tiempo debe ser 1, 2, 3 o null; se recibió ${tiempo}`);
+  }
+  return puntosBase(elegidas, opciones) * multiplicador;
 }
 
 /**
@@ -34,5 +50,5 @@ export function puntosEscena(elegidas, opciones, tiempo) {
  * @returns {'Insurgente de honor'|'Capitán trigarante'|'Recluta de Dolores'|'Cronista despistado'}
  */
 export function rango(total) {
-  throw new Error('No implementado: ver el issue "Implementar scoring.js"');
+  return RANGOS.find((r) => total >= r.minimo)?.nombre ?? 'Cronista despistado';
 }
